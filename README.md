@@ -50,3 +50,21 @@ Use `--subject` to customize the subject. The batch's `delivery_log.csv` records
 ## Share the repository
 
 The ignore rules allow only the listed source files and documentation at the repository root. Run `git status --short` and `git ls-files` here before pushing.
+
+## Develop and test
+
+Create an isolated Python environment from the repository root. Use `.venv\Scripts\python.exe` in Windows PowerShell or `.venv/bin/python` on macOS/Linux in place of the initial `python` command when installing dependencies and running scripts.
+
+```sh
+python -m venv .venv
+# Use the environment's Python for the following two commands.
+python -m pip install -r requirements.txt
+python -m unittest -v
+```
+
+- `participants.py` reads the first worksheet and validates the name and email fields.
+- `Bulk_Generate.py` renders the template and signatures, then writes PDFs and their recipient mapping.
+- `Bulk_Send.py` verifies attachments, sends via SMTP when requested, and records delivery results.
+- `make_demo.py` creates all sample inputs. `test_workflow.py` uses temporary directories and a mocked SMTP connection, so the tests need no credentials or network access.
+
+Use generated demo inputs when working on the workflow. Keep batch directories intact and run at most one sender per batch.
