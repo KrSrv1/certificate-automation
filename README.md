@@ -68,3 +68,11 @@ python -m unittest -v
 - `make_demo.py` creates all sample inputs. `test_workflow.py` uses temporary directories and a mocked SMTP connection, so the tests need no credentials or network access.
 
 Use generated demo inputs when working on the workflow. Keep batch directories intact and run at most one sender per batch.
+
+## License and citation
+
+This project is available under the [BSD Zero Clause License (0BSD)](LICENSE).
+
+If you use this project in your work, a citation or link back to this repository is appreciated.
+
+> Saurav, Kumar. *Workshop Certificate Automation*. Software. GitHub [@KrSrv1](https://github.com/KrSrv1).
